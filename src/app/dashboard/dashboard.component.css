@@ -1,0 +1,171 @@
+/* DashboardComponent's private CSS styles */
+[class*='col-'] {
+  float: left;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+[class*='col-']:last-of-type {
+  padding-right: 0;
+}
+a {
+  text-decoration: none;
+}
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+h3 {
+  text-align: center; margin-bottom: 0;
+}
+h4 {
+  position: relative;
+}
+.grid {
+  margin: 0;
+}
+.col-1-4 {
+  width: 25%;
+}
+.module {
+  padding: 20px;
+  text-align: center;
+  color: #eee;
+  max-height: 120px;
+  min-width: 120px;
+  background-color: #607D8B;
+  border-radius: 2px;
+}
+.module:hover {
+  background-color: #EEE;
+  cursor: pointer;
+  color: #607d8b;
+}
+.grid-pad {
+  padding: 10px 0;
+}
+.grid-pad > [class*='col-']:last-of-type {
+  padding-right: 20px;
+}
+@media (max-width: 600px) {
+  .module {
+    font-size: 10px;
+    max-height: 75px; }
+}
+@media (max-width: 1024px) {
+  .grid {
+    margin: 0;
+  }
+  .module {
+    min-width: 60px;
+  }
+}
+
+
+
+    body {
+        font-family: Helvetica;
+        font-size: 9pt;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin:80px 40px;
+        
+        
+    }
+   
+    
+    div.HashtagSearch {
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        padding: 10px 40px 10px;
+        margin: 0;
+        background-color: #f3f3ff;
+    }
+    div.form {
+    	color:gray;
+    }
+    input.form{
+    	width:40%;
+    }
+    
+    p{
+    	margin:3px;
+    }
+    table {
+        border-collapse: collapse;
+        font-size: 12px;
+        table-layout: fixed;
+        width:90%;
+        background-color:white;
+        border-color:gray;
+    }
+    th, tr {
+        border: solid gray 0;
+        height:30px;
+        padding:10px;
+        text-align:left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        border-width: 0.1px 0;
+        color:gray;
+    }
+    td{
+    	padding:10px 10px;
+    }
+    .Likes{
+    	color:gray;
+    }
+    .Replies{
+    	color:gray;
+    }
+    .Retweets{
+    	color:gray;
+    }
+    button.switch {
+    	padding: 10px;
+    	border: none;
+    	margin: 0;
+    	background-color: white;
+    }
+    button.switch.active {
+    	background-color: #f3f3ff;
+    	color: #00BFFF;
+    }
+    
+    button.page{
+    	width:30px;
+    	height:30px;
+    	margin: 20px 0px;
+    }
+    button.page:hover {
+    	background-color:#00BFFF;
+    	color: white;
+    	width:30px;
+    	height:30px;
+    }
+    div.search {
+    	width: 200px;
+    }
+	.search {
+		position: relative;
+	}
+	.search input {
+		width: 100%;
+		padding: 7px;
+	}
+	.search .fa-search { 
+		position: absolute;
+	    top: 9px;
+	    font-size: 12px;
+	    right: 8px;
+	}
+
+
+/*
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
