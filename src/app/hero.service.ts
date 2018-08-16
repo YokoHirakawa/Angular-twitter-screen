@@ -21,30 +21,28 @@ export class HeroService {
     private messageService: MessageService) { }
 
   /** サーバーからヒーローを取得する */
-  getHeroes (): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.heroesUrl)
-      .pipe(
-        tap(results => {
-          this.log('fetched heroes')
-          let heroes:Hero[] = [];
-          results.forEach((element) => {
-            let hero = new Hero();
-            hero.name = '';
-            hero.text = element.text;
-            hero.id = element.id ;
-            hero.favourites_count = element.favourites_count;
-            hero.reply_count = element.reply_count;
-            hero.retweet_count = element.retweet_count;
-            hero.created_at= element.created_at;
-            heroes.push(hero)
+  getHeroes (mode:string, term:string, start:number, end:number): Observable<Hero[]> {
 
-          });
-          return heroes;
-        }),
-        catchError(this.handleError('getHeroes', []))
-      );
+    let url = 'http://127.0.0.1:5000/'+mode+'/'+term+'?start='+start+'&end='+end;
+ 
+    return this.http.get<Hero[]>(url)
+    .pipe(
+      tap(results => {
+        return results.map(element => {
+          let hero = new Hero();
+          hero.name = '';
+          hero.text = element.text;
+          hero.id = element.id;
+          hero.favourites_count = element.favourites_count;
+          hero.reply_count = element.reply_count;
+          hero.retweet_count = element.retweet_count;
+          hero.created_at= element.created_at;
+          return hero;
+        });
+      }),
+      catchError(this.handleError('getHeroes', []))
+    );
   }
-
 
   /** IDによりヒーローを取得する。idが見つからない場合は`undefined`を返す。 */
   getHeroNo404<Data>(id: number): Observable<Hero> {

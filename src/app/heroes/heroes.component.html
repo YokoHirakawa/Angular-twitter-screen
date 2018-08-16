@@ -1,26 +1,103 @@
-<h2>My Heroes</h2>
 
-<div>
-  <label>Hero name:
-    <input #heroName />
-  </label>
-  <!-- (click) 入力値をadd()に渡したあと、入力をクリアする -->
-  <button (click)="add(heroName.value); heroName.value=''">
-    add
-  </button>
+<!-- <table>
+  <tr *ngFor="let hero of heroes" class="col-1-4"
+      routerLink="/detail/{{hero.id}}">
+      
+      <td>{{hero.id}}</td>
+      <td>{{hero.name}}</td>
+      
+  </tr>
+</table>
+
+<app-hero-search></app-hero-search>
+ -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+<div class="button">
+<nav>
+  <a routerLink="/dashboard/">Hashtag Search</a>
+  <a routerLink="/heroes/">User Search</a>
+</nav>
 </div>
 
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
-    <button class="delete" title="delete hero"
-    (click)="delete(hero)">x</button>
-  </li>
-</ul>
+<div class="UserSearch">
+
+  <div class="form">
+      <p>User search</p>
+
+    <div class="search">
+      <input [(ngModel)]="term" (keyup)="$event.keyCode == 13 && getHeroes()" placeholder="Search by User" class="search"/>
+      <span class="fa fa-search"></span>
+    </div>
+  </div>
+  <div class="table"> 
+    <table>
+      <tr>
+        <th>Tweet</th>
+        <th>Likes</th>
+        <th>Replies</th>
+        <th>Retweets</th>
+        <th>Hashtags</th>
+        <th>Date</th>
+      </tr>
+      <tr *ngFor="let hero of heroes | paginate: { id: 'server', itemsPerPage: 2, currentPage: p, totalItems: total }" 
+      class="col-1-10" routerLink="/detail/{{hero.id}}">
+        
+        <td>
+          <div class="tweet">
+              {{ hero.text }}
+              </div>
+        </td>
+        <td>
+          <div class="Likes">
+      
+                {{ hero.favourites_count > 0 ? hero.favourites_count : "-" }}
+      
+          </div>
+        </td>
+        <td>
+          <div class="Replies">
+      
+            {{ hero.reply_count > 0 ? hero.reply_count : "-" }}
+        
+          </div>
+        </td>
+        <td>
+          <div class="Retweets">
+      
+            {{ hero.retweet_count > 0 ? hero.retweet_count : "-" }}
+         
+       
+             </div>
+        </td>
+        <td>
+          <ng-container *ngIf="hero.hashtags.length > 0 ; then showhashtags ;else showdash">
+            </ng-container>
+          <ng-template #showhashtags>
+          <div class="hashtags" *ngFor="let hashtag of hero.hashtags">
+              #{{ hashtag.text }}
+            </div>
+            </ng-template>
+          
+
+          <ng-template #showdash>
+            -
+          </ng-template>
 
 
+            
+        
+          
+        </td>
+        <td>
+          <div class="Date">{{ hero.created_at }}</div>
+
+          </td>
+      </tr>
+    </table>  
+    <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>   
+    </div>
+</div>
 <!-- 
 Copyright 2017-2018 Google Inc. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that

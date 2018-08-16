@@ -5,7 +5,9 @@ export class Hero {
   favourites_count: number;
   reply_count: number;
   retweet_count: number;
-  created_at: number;
+  created_at: string;
+  hashtags:string[];
+  
 }
 
 	

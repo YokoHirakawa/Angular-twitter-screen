@@ -1,6 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy,Component,Input,OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/from';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/delay';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,20 +14,33 @@ import { HeroService } from '../hero.service';
   styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent implements OnInit {
-  heroes: Hero[] = [];
+  heroes:Hero[] = [];
+  term:string = "spacex";
+  page:number = 1;
+  total:number;
 
   constructor(private heroService: HeroService) { }
 
   ngOnInit() {
+    //this.getHeroes("spacex", 1);
+  }
+
+  getHeroes() : void {
+    const itemsperpage = 10
+    const start = itemsperpage * (this.page - 1);
+    const end = start + itemsperpage-1; // Inclusive
+    this.heroService.getHeroes("hashtags", this.term, start, end)
+      .subscribe(heroes => {
+        this.total = 100;
+        this.heroes = heroes;
+      });   
+  }
+
+  getPage(page:number) : void {
+    this.page = page;
     this.getHeroes();
   }
-
-  getHeroes(): void {
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
-  }
 }
-
 
 /*
 Copyright 2017-2018 Google Inc. All Rights Reserved.

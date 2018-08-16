@@ -1,14 +1,13 @@
 import { Hero } from './hero';
 
 export const HEROES: Hero[] = [
-  { id: 1, name: 'hoh', text: 'yay', favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:1 },
-  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:1 },
-  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:1 },
-  { id: 1,name: 'hoh',text: 'yay', favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:1 },
-  { id: 1,name: 'hoh', text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:1 },
-  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:1 },
-  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:1 },
- 
+  { id: 1, name: 'hoh', text: 'yay', favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:"", hashtags:[] },
+  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:"", hashtags:[] },
+  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:"", hashtags:[] },
+  { id: 1,name: 'hoh',text: 'yay', favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:"", hashtags:[] },
+  { id: 1,name: 'hoh', text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:"", hashtags:[] },
+  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:"", hashtags:[] },
+  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:"", hashtags:[] },
 ];
 
 

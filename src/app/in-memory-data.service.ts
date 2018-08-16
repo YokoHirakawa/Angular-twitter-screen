@@ -3,13 +3,13 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const heroes = [
-  { id: 1, name: 'hoh', text: 'yay', favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:1 },
-  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:1 },
-  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:1 },
-  { id: 1,name: 'hoh',text: 'yay', favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:1 },
-  { id: 1,name: 'hoh', text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:1 },
-  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:1 },
-  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:1 },
+  { id: 1, name: 'hoh', text: 'yay', favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:"", hashtags:[] },
+  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:"", hashtags:[] },
+  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:"", hashtags:[] },
+  { id: 1,name: 'hoh',text: 'yay', favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:"", hashtags:[] },
+  { id: 1,name: 'hoh', text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:"", hashtags:[] },
+  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:"", hashtags:[] },
+  { id: 1, name: 'hoh',text: 'yay',favourites_count: 1,reply_count: 1,retweet_count: 1,created_at:"", hashtags:[] },
     ];
     return {heroes};
   }
