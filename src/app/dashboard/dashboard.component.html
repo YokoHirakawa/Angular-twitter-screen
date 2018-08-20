@@ -15,7 +15,7 @@
 
 <div class="button">
 <nav>
-	<a routerLink="/dashboard/">Hashtag Search</a>
+	<a class="active" routerLink="/dashboard/">Hashtag Search</a>
 	<a routerLink="/heroes/">User Search</a>
 </nav>
 </div>
@@ -40,8 +40,8 @@
 				<th>Hashtags</th>
 				<th>Date</th>
 			</tr>
-			<tr *ngFor="let hero of heroes | paginate: { id: 'server', itemsPerPage: 2, currentPage: p, totalItems: total }" 
-			class="col-1-10" routerLink="/detail/{{hero.id}}">
+			<tr *ngFor="let hero of heroes | paginate: { id: 'server', itemsPerPage: 2, currentPage: page, totalItems: total }" 
+			class="col-1-10">
 	      
 				<td>
 					<div class="tweet">

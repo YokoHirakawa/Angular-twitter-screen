@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Hero } from './hero';
-import { MessageService } from './message.service';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,8 +17,7 @@ export class HeroService {
   private heroesUrl = 'http://127.0.0.1:5000/users/ElonMusk?start=0&end=10';  // Web APIのURL
 
   constructor(
-    private http: HttpClient,
-    private messageService: MessageService) { }
+    private http: HttpClient){ }
 
   /** サーバーからヒーローを取得する */
   getHeroes (mode:string, term:string, start:number, end:number): Observable<Hero[]> {
@@ -130,7 +129,7 @@ export class HeroService {
 
   /** HeroServiceのメッセージをMessageServiceを使って記録 */
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    console.log(`HeroService: ${message}`);
   }
 }
 

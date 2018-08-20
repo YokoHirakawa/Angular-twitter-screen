@@ -1,4 +1,4 @@
-/* Dashb/*oardComponent's private CSS styles */
+ Dashb/*oardComponent's private CSS styles */
 /*[class*='col-'] {
   float: left;
   padding-right: 20px;
@@ -60,7 +60,7 @@ h4 {
     min-width: 60px;
   }
 }
-*/*/
+*/
 
 
     body {
@@ -73,7 +73,10 @@ h4 {
         
         
     }
-   
+    a.active{
+      background-color: #f3f3ff;
+      color: #00BFFF;
+    }
     
     div.UserSearch {
         -webkit-column-break-inside: avoid;
@@ -162,6 +165,8 @@ h4 {
       font-size: 12px;
       right: 8px;
   }
+
+
 
 
 /*

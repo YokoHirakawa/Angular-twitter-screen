@@ -73,7 +73,7 @@ h4 {
         
         
     }
-   
+
     
     div.HashtagSearch {
         -webkit-column-break-inside: avoid;
@@ -83,6 +83,11 @@ h4 {
         margin: 0;
         background-color: #f3f3ff;
     }
+    a.active{
+      background-color: #f3f3ff;
+      color: #00BFFF;
+    }
+    
     div.form {
     	color:gray;
     }
@@ -124,17 +129,30 @@ h4 {
     .Retweets{
     	color:gray;
     }
-    button.switch {
+    button {
     	padding: 10px;
     	border: none;
     	margin: 0;
     	background-color: white;
     }
-    button.switch.active {
+    button.active {
     	background-color: #f3f3ff;
     	color: #00BFFF;
     }
     
+
+
+    pagination-controls{
+      width:30px;
+      height:30px;
+      margin: 20px 0px;
+    }
+    pagination-controls:hover {
+      background-color:#00BFFF;
+      color: white;
+      width:30px;
+      height:30px;
+    }
     button.page{
     	width:30px;
     	height:30px;

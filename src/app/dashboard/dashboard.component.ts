@@ -15,7 +15,7 @@ import 'rxjs/add/operator/delay';
 })
 export class DashboardComponent implements OnInit {
   heroes:Hero[] = [];
-  term:string = "spacex";
+  term:string = "";
   page:number = 1;
   total:number;
 

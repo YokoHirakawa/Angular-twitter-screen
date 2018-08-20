@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy,Component,Input,OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/do';
@@ -15,7 +15,7 @@ import 'rxjs/add/operator/delay';
 })
 export class HeroesComponent implements OnInit {
   heroes:Hero[] = [];
-  term:string = "spacex";
+  term:string = "";
   page:number = 1;
   total:number;
 
