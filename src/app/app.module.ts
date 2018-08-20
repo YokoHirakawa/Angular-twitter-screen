@@ -8,8 +8,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule }     from './app-routing.module';
 
 import { AppComponent }         from './app.component';
-import { DashboardComponent }   from './dashboard/dashboard.component';
-import { HeroesComponent }      from './heroes/heroes.component';
+import { HashtagComponent }   from './hashtag/hashtag.component';
+import { UserComponent }      from './user/user.component';
 import {NgxPaginationModule}    from 'ngx-pagination'; 
 
 @NgModule({
@@ -22,8 +22,8 @@ import {NgxPaginationModule}    from 'ngx-pagination';
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
-    HeroesComponent,
+    HashtagComponent,
+    UserComponent,
   ],
   bootstrap: [ AppComponent ]
 })

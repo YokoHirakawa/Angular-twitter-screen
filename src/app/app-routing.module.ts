@@ -1,13 +1,13 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent }   from './dashboard/dashboard.component';
-import { HeroesComponent }      from './heroes/heroes.component';
+import { HashtagComponent }   from './hashtag/hashtag.component';
+import { UserComponent }      from './user/user.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'heroes', component: HeroesComponent },
+  { path: '', redirectTo: '/hashtag', pathMatch: 'full' },
+  { path: 'hashtag', component: HashtagComponent },
+  { path: 'user', component: UserComponent },
 ];
 
 @NgModule({

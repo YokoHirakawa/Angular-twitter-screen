@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy,Component,Input,OnInit } from '@angular/core';
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import { Tweet } from '../tweet';
+import { TweetService } from '../tweet.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/from';
@@ -9,37 +9,37 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/delay';
 
 @Component({
-  selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: [ './heroes.component.css' ]
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: [ './user.component.css' ]
 })
-export class HeroesComponent implements OnInit {
-  heroes:Hero[] = [];
+export class UserComponent implements OnInit {
+  tweets:Tweet[] = [];
   term:string = "";
   page:number = 1;
   total:number;
 
-  constructor(private heroService: HeroService) { }
+  constructor(private tweetService: TweetService) { }
 
   ngOnInit() {
-    //this.getHeroes("spacex", 1);
+    //this.getTweets("spacex", 1);
   }
 
 
-  getHeroes() : void {
+  getTweets() : void {
     const itemsperpage = 10
     const start = itemsperpage * (this.page - 1);
     const end = start + itemsperpage-1; // Inclusive
-    this.heroService.getHeroes("users", this.term, start, end)
-      .subscribe(heroes => {
+    this.tweetService.getTweets("users", this.term, start, end)
+      .subscribe(tweets => {
         this.total = 100;
-        this.heroes = heroes;
+        this.tweets = tweets;
       });   
   }
 
   getPage(page:number) : void {
     this.page = page;
-    this.getHeroes();
+    this.getTweets();
   }
 }
 

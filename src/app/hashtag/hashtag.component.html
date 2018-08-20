@@ -1,22 +1,22 @@
 
 <!-- <table>
-  <tr *ngFor="let hero of heroes" class="col-1-4"
-      routerLink="/detail/{{hero.id}}">
+  <tr *ngFor="let tweet of tweets" class="col-1-4"
+      routerLink="/detail/{{tweet.id}}">
       
-      <td>{{hero.id}}</td>
-      <td>{{hero.name}}</td>
+      <td>{{tweet.id}}</td>
+      <td>{{tweet.name}}</td>
       
   </tr>
 </table>
 
-<app-hero-search></app-hero-search>
+<app-tweet-search></app-tweet-search>
  -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 <div class="button">
 <nav>
-	<a class="active" routerLink="/dashboard/">Hashtag Search</a>
-	<a routerLink="/heroes/">User Search</a>
+	<a class="active" routerLink="/hashtag/">Hashtag Search</a>
+	<a routerLink="/user/">User Search</a>
 </nav>
 </div>
 
@@ -26,7 +26,7 @@
 	    <p>Hashtag search</p>
 
 		<div class="search">
-			<input [(ngModel)]="term" (keyup)="$event.keyCode == 13 && getHeroes()" placeholder="Search by hashtag" class="search"/>
+			<input [(ngModel)]="term" (keyup)="$event.keyCode == 13 && getTweets()" placeholder="Search by hashtag" class="search"/>
 			<span class="fa fa-search"></span>
 		</div>
 	</div>
@@ -40,41 +40,41 @@
 				<th>Hashtags</th>
 				<th>Date</th>
 			</tr>
-			<tr *ngFor="let hero of heroes | paginate: { id: 'server', itemsPerPage: 2, currentPage: page, totalItems: total }" 
+			<tr *ngFor="let tweet of tweets | paginate: { id: 'server', itemsPerPage: 2, currentPage: page, totalItems: total }" 
 			class="col-1-10">
 	      
 				<td>
 					<div class="tweet">
-     					{{ hero.text }}
+     					{{ tweet.text }}
       				</div>
 				</td>
 				<td>
 					<div class="Likes">
 			
-        				{{ hero.favourites_count > 0 ? hero.favourites_count : "-" }}
+        				{{ tweet.favourites_count > 0 ? tweet.favourites_count : "-" }}
 			
 					</div>
 				</td>
 				<td>
 					<div class="Replies">
 			
-						{{ hero.reply_count > 0 ? hero.reply_count : "-" }}
+						{{ tweet.reply_count > 0 ? tweet.reply_count : "-" }}
 				
 					</div>
 				</td>
 				<td>
 					<div class="Retweets">
 			
-						{{ hero.retweet_count > 0 ? hero.retweet_count : "-" }}
+						{{ tweet.retweet_count > 0 ? tweet.retweet_count : "-" }}
 				 
 			 
  				     </div>
 				</td>
 				<td>
-					<ng-container *ngIf="hero.hashtags.length > 0 ; then showhashtags ;else showdash">
+					<ng-container *ngIf="tweet.hashtags.length > 0 ; then showhashtags ;else showdash">
 						</ng-container>
 					<ng-template #showhashtags>
-					<div class="hashtags" *ngFor="let hashtag of hero.hashtags">
+					<div class="hashtags" *ngFor="let hashtag of tweet.hashtags">
     					#{{ hashtag.text }}
 						</div>
 						</ng-template>
@@ -90,7 +90,7 @@
 					
 				</td>
 				<td>
-					<div class="Date">{{ hero.created_at }}</div>
+					<div class="Date">{{ tweet.created_at }}</div>
 
      			</td>
 			</tr>

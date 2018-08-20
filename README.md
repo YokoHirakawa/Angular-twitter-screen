@@ -1,10 +1,28 @@
-# angular-j95muz
+# angular-twitter-screen
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
 
-## Development server
+This is a recreation of my Django-twitter-screen project using Angular.
+My first Django app that connects to my Twitter API:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Show the list of tweets with the given hashtag
+* Show the list of tweets that user has on his feed
+
+## Installation
+
+Run  `npm install` for dependency installation.
+
+NOTE: You also need my python-twitter API running on the same server
+
+http://www.github.com/yokohirakawa/python-twitter-api/
+
+## Usage
+
+Run `ng serve` for a dev server, and go to any of the following:
+
+http://127.0.0.1:4200/
+http://127.0.0.1:4200/user/
+http://127.0.0.1:4200/hashtag/
 
 ## Code scaffolding
 

@@ -1,4 +1,4 @@
-export class Hero {
+export class Tweet {
   id: number;
   name: string;
   text: string;
