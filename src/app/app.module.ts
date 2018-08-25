@@ -1,16 +1,18 @@
-import { NgModule }       from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
-import { HttpClientModule }    from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
-import { AppRoutingModule }     from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent }         from './app.component';
-import { HashtagComponent }   from './hashtag/hashtag.component';
-import { UserComponent }      from './user/user.component';
-import {NgxPaginationModule}    from 'ngx-pagination'; 
+import { AppComponent } from './app.component';
+import { HashtagComponent } from './hashtag/hashtag.component';
+import { UserComponent } from './user/user.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ResultsComponent } from './results/results.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   imports: [
@@ -24,6 +26,8 @@ import {NgxPaginationModule}    from 'ngx-pagination';
     AppComponent,
     HashtagComponent,
     UserComponent,
+    ResultsComponent,
+    SearchComponent,
   ],
   bootstrap: [ AppComponent ]
 })

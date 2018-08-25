@@ -1,0 +1,25 @@
+	div.search {
+    	width: 200px;
+    }
+
+
+    .search {
+		position: relative;
+	}
+	.search input {
+		width: 100%;
+		padding: 7px;
+	}
+	.search .fa-search { 
+		position: absolute;
+	    top: 9px;
+	    font-size: 12px;
+	    right: 8px;
+	}
+	input.form{
+    	width:40%;
+    }
+
+    div.form {
+    	color:gray;
+    }

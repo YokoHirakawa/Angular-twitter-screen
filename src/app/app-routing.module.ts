@@ -1,7 +1,8 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HashtagComponent }   from './hashtag/hashtag.component';
-import { UserComponent }      from './user/user.component';
+import { HashtagComponent } from './hashtag/hashtag.component';
+import { UserComponent } from './user/user.component';
+
 
 
 const routes: Routes = [

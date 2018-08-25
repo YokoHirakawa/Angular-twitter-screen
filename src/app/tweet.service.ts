@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
@@ -14,28 +14,45 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class TweetService {
 
+  @Output() onSearchUpdate: EventEmitter<Tweet[]> = new EventEmitter();
+
+
   private tweetsUrl = 'http://127.0.0.1:5000/users/ElonMusk?start=0&end=10';  // Web APIのURL
 
   constructor(
-    private http: HttpClient){ }
+    private http: HttpClient) { }
+
+
+  doSearch(mode: string, term: string, start: number, end: number) {
+    console.log(term);
+    const itemsperpage = 10;
+    const start = itemsperpage * (this.page - 1);
+    const end = start + itemsperpage - 1; // Inclusive
+    this.getTweets(mode, term, start, end)
+      .subscribe(tweets => {  
+        this.total = 100;
+        this.tweets = tweets;
+        this.onSearchUpdate.emit( tweets );
+      });
+    }
 
   /** サーバーからヒーローを取得する */
-  getTweets (mode:string, term:string, start:number, end:number): Observable<Tweet[]> {
+  getTweets (mode: string, term: string, start: number, end: number): Observable<Tweet[]> {
 
-    let url = 'http://127.0.0.1:5000/'+mode+'/'+term+'?start='+start+'&end='+end;
- 
+    const url = 'http://127.0.0.1:5000/' + mode + '/' + term + '?start=' + start + '&end=' + end;
+
     return this.http.get<Tweet[]>(url)
     .pipe(
       tap(results => {
         return results.map(element => {
-          let tweet = new Tweet();
+          const tweet = new Tweet();
           tweet.name = '';
           tweet.text = element.text;
           tweet.id = element.id;
           tweet.favourites_count = element.favourites_count;
           tweet.reply_count = element.reply_count;
           tweet.retweet_count = element.retweet_count;
-          tweet.created_at= element.created_at;
+          tweet.created_at = element.created_at;
           return tweet;
         });
       }),
@@ -78,36 +95,8 @@ export class TweetService {
     );
   }
 
-  //////// Save methods //////////
 
-  /** POST: サーバーに新しいヒーローを登録する */
-  addTweet (tweet: Tweet): Observable<Tweet> {
-    return this.http.post<Tweet>(this.tweetsUrl, tweet, httpOptions).pipe(
-      tap((tweet: Tweet) => this.log(`added tweet w/ id=${tweet.id}`)),
-      catchError(this.handleError<Tweet>('addTweet'))
-    );
-  }
-
-  /** DELETE: サーバーからヒーローを削除 */
-  deleteTweet (tweet: Tweet | number): Observable<Tweet> {
-    const id = typeof tweet === 'number' ? tweet : tweet.id;
-    const url = `${this.tweetsUrl}/${id}`;
-
-    return this.http.delete<Tweet>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted tweet id=${id}`)),
-      catchError(this.handleError<Tweet>('deleteTweet'))
-    );
-  }
-
-  /** PUT: サーバー上でヒーローを更新 */
-  updateTweet (tweet: Tweet): Observable<any> {
-    return this.http.put(this.tweetsUrl, tweet, httpOptions).pipe(
-      tap(_ => this.log(`updated tweet id=${tweet.id}`)),
-      catchError(this.handleError<any>('updateTweet'))
-    );
-  }
-
-  /**
+ /**
    * 失敗したHttp操作を処理します。
    * アプリを持続させます。
    * @param operation - 失敗した操作の名前

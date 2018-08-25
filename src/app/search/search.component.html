@@ -1,0 +1,8 @@
+<div class="form">
+	    <p>{{ title }}</p>
+
+		<div class="search">
+			<input [(ngModel)]="term" (keyup)="onKeyEnter($event)" placeholder="{{ placeholder }}" class="search"/>
+			<span class="fa fa-search"></span>
+		</div>
+	</div>

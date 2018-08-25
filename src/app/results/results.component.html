@@ -1,0 +1,68 @@
+
+<div class="table">	
+	<table>
+		<tr>
+			<th>Tweet</th>
+			<th>Likes</th>
+			<th>Replies</th>
+			<th>Retweets</th>
+			<th>Hashtags</th>
+			<th>Date</th>
+		</tr>
+		<tr *ngFor="let tweet of tweets | paginate: { id: 'server', itemsPerPage: 2, currentPage: page, totalItems: total }" 
+		class="col-1-10">
+      
+			<td>
+				<div class="tweet">
+ 					{{ tweet.text }}
+  				</div>
+			</td>
+			<td>
+				<div class="Likes">
+		
+    				{{ tweet.favourites_count > 0 ? tweet.favourites_count : "-" }}
+		
+				</div>
+			</td>
+			<td>
+				<div class="Replies">
+		
+					{{ tweet.reply_count > 0 ? tweet.reply_count : "-" }}
+			
+				</div>
+			</td>
+			<td>
+				<div class="Retweets">
+		
+					{{ tweet.retweet_count > 0 ? tweet.retweet_count : "-" }}
+			 
+		 
+				     </div>
+			</td>
+			<td>
+				<ng-container *ngIf="tweet.hashtags.length > 0 ; then showhashtags ;else showdash">
+					</ng-container>
+				<ng-template #showhashtags>
+				<div class="hashtags" *ngFor="let hashtag of tweet.hashtags">
+					#{{ hashtag.text }}
+					</div>
+					</ng-template>
+				
+
+				<ng-template #showdash>
+					-
+				</ng-template>
+
+
+					
+			
+				
+			</td>
+			<td>
+				<div class="Date">{{ tweet.created_at }}</div>
+
+ 			</td>
+		</tr>
+	</table>	
+	<pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>   
+</div>

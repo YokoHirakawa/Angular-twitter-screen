@@ -1,0 +1,117 @@
+body {
+        font-family: Helvetica;
+        font-size: 9pt;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin:80px 40px;
+        
+        
+    }
+
+    
+    div.HashtagSearch {
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        padding: 10px 40px 10px;
+        margin: 0;
+        background-color: #f3f3ff;
+    }
+    a.active{
+      background-color: #f3f3ff;
+      color: #00BFFF;
+    }
+    
+    div.form {
+    	color:gray;
+    }
+    input.form{
+    	width:40%;
+    }
+    
+    p{
+    	margin:3px;
+    }
+    table {
+        border-collapse: collapse;
+        font-size: 12px;
+        table-layout: fixed;
+        width:90%;
+        background-color:white;
+        border-color:gray;
+    }
+    th, tr {
+        border: solid gray 0;
+        height:30px;
+        padding:10px;
+        text-align:left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        border-width: 0.1px 0;
+        color:gray;
+    }
+    td{
+    	padding:10px 10px;
+    }
+    .Likes{
+    	color:gray;
+    }
+    .Replies{
+    	color:gray;
+    }
+    .Retweets{
+    	color:gray;
+    }
+    button {
+    	padding: 10px;
+    	border: none;
+    	margin: 0;
+    	background-color: white;
+    }
+    button.active {
+    	background-color: #f3f3ff;
+    	color: #00BFFF;
+    }
+    
+
+
+    pagination-controls{
+      width:30px;
+      height:30px;
+      margin: 20px 0px;
+    }
+    pagination-controls:hover {
+      background-color:#00BFFF;
+      color: white;
+      width:30px;
+      height:30px;
+    }
+    button.page{
+    	width:30px;
+    	height:30px;
+    	margin: 20px 0px;
+    }
+    button.page:hover {
+    	background-color:#00BFFF;
+    	color: white;
+    	width:30px;
+    	height:30px;
+    }
+    div.search {
+    	width: 200px;
+    }
+	.search {
+		position: relative;
+	}
+	.search input {
+		width: 100%;
+		padding: 7px;
+	}
+	.search .fa-search { 
+		position: absolute;
+	    top: 9px;
+	    font-size: 12px;
+	    right: 8px;
+	}
